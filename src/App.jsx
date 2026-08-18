@@ -19,6 +19,7 @@ export default function App() {
     <Route path="/categories" element={<CategoriesPage/>}/>
     <Route path="/categories/:category" element={<CategoryComplaintsPage/>}/>
     <Route path="/admin" element={<AdminPage/>}/>
+    <Route path="/admin/departments/:slug" element={<AdminPage/>}/>
     <Route path="*" element={<Navigate to="/" replace/>}/>
   </Routes></AdminAuthProvider></BrowserRouter>
 }
