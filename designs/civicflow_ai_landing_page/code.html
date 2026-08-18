@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CivicFlow AI - Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#171d19",
+                        "outline": "#6d7a72",
+                        "surface-dim": "#d5dcd6",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-container": "#e9efe9",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-container-high": "#e4eae4",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dee4de",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#ba5551",
+                        "surface-bright": "#f5fbf5",
+                        "secondary-container": "#dae2fd",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "inverse-surface": "#2c322e",
+                        "primary": "#006948",
+                        "on-surface-variant": "#3d4a42",
+                        "primary-fixed-dim": "#68dba9",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#5c647a",
+                        "on-tertiary-fixed": "#410004",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7f2928",
+                        "inverse-primary": "#68dba9",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#00855d",
+                        "surface-container-low": "#eff5ef",
+                        "primary-fixed": "#85f8c4",
+                        "background": "#f5fbf5",
+                        "surface-container-highest": "#dee4de",
+                        "outline-variant": "#bccac0",
+                        "on-primary-container": "#f5fff7",
+                        "surface": "#f5fbf5",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "secondary": "#565e74",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-background": "#171d19",
+                        "on-primary-fixed-variant": "#005137",
+                        "tertiary": "#9b3e3b",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-tint": "#006c4a",
+                        "on-primary-fixed": "#002114",
+                        "inverse-on-surface": "#ecf2ec",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "4px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "margin": "32px",
+                        "3xl": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid #e2e8f0; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component JSON) -->
+<nav aria-label="Main Navigation" class="fixed top-0 w-full z-50 flex justify-between items-center px-margin h-16 max-w-7xl mx-auto bg-white/90 dark:bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary">CivicFlow AI</span>
+</div>
+<div class="hidden md:flex gap-lg font-label-md text-label-md text-on-surface-variant">
+<a class="text-primary border-b-2 border-primary pb-1 opacity-80 scale-95 transition-all" href="#">Report an Issue</a>
+<a class="hover:text-primary transition-colors" href="#">Track Complaint</a>
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="hover:text-primary transition-colors" href="#">Admin</a>
+</div>
+<div class="flex items-center gap-md">
+<!-- Search bar right -->
+<button aria-label="Search" class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded hover:bg-primary-container transition-colors">
+                New Report
+            </button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A small circular user profile portrait of a smiling professional in bright modern lighting, wearing professional civic attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv8w9YP3K3StSL_8FAaoUIDBOXTg3QpifzhQCcZGs410DgP_cEylAzd5inFRrQeWbGNXvflMOyGXOYV4npO8kmdX2P9m4JNVNuzJ7_EoB7JPqmHfsdJMJTijpePc8sTP3W-7qg1GsodD-KGLTHoXUG8C7_1xCLB_d08VXOtSLUZyI44LpB26AKxPWqA3Rw0DkwiQrpA9-RhPtaTWZp5nxdklPk5IGiiey-XrC4NV5tMCQOJGhdV5sbzw"/>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[80px]"> <!-- Padding for fixed nav -->
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-margin py-3xl md:py-[96px] flex flex-col items-center text-center">
+<h1 class="font-display-lg text-display-lg text-on-surface max-w-[800px] mb-md leading-tight">
+                Turn Citizen Complaints into Swift <span class="text-primary">Civic Action</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mb-xl">
+                Powered by Gemini Multimodal AI. We transform messy civic reports into structured, dispatch-ready actions instantly, empowering transparent and efficient governance.
+            </p>
+<div class="flex gap-md">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded hover:bg-primary-container transition-colors">
+                    Report an Issue
+                </button>
+<button class="glass-card text-on-surface font-label-md text-label-md px-lg py-sm rounded hover:bg-surface-variant transition-colors border border-outline-variant">
+                    Track Complaint
+                </button>
+</div>
+</section>
+<!-- Metrics Bar -->
+<section class="max-w-5xl mx-auto px-margin mb-3xl">
+<div class="glass-card rounded-xl p-lg flex flex-col md:flex-row justify-around items-center gap-lg shadow-sm">
+<div class="text-center">
+<p class="font-headline-lg text-headline-lg text-primary font-bold">1,420+</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Issues Resolved</p>
+</div>
+<div class="hidden md:block w-px h-12 bg-outline-variant"></div>
+<div class="text-center">
+<p class="font-headline-lg text-headline-lg text-primary font-bold">4.2 hrs</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Avg Response Time</p>
+</div>
+<div class="hidden md:block w-px h-12 bg-outline-variant"></div>
+<div class="text-center">
+<p class="font-headline-lg text-headline-lg text-primary font-bold">96%</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">AI Structuring Accuracy</p>
+</div>
+</div>
+</section>
+<!-- Problem vs Solution (Bento Style) -->
+<section class="max-w-7xl mx-auto px-margin py-xl bg-surface-container-low rounded-3xl mb-3xl">
+<div class="text-center mb-xl">
+<h2 class="font-headline-md text-headline-md text-on-surface">The Civic Data Challenge</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">From raw chaos to structured action.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-lg">
+<!-- Raw Input -->
+<div class="glass-card p-xl rounded-xl border border-error-container relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-error"></div>
+<h3 class="font-label-md text-label-md text-error mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">warning</span> Raw Citizen Report
+                    </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic p-md bg-white rounded border border-outline-variant">
+                        "Hey, there's a massive hole on 5th street near the bakery. I almost broke my tire! Water is pooling in it too. Fix it ASAP before someone gets hurt!"
+                    </p>
+<img alt="Raw Pothole Image" class="w-full h-32 object-cover rounded mt-md border border-outline-variant grayscale" data-alt="A blurry, low-quality smartphone photo of a generic pothole on a city street, representing unstructured citizen input." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzIt_tLHbHZIv2QJdb2IXRN3uUf3OpfFwtYIVF3i0ahYcL99_Sc47CB_oQMv5Y4Wh8a-LnOt7Gzwldi-mvjMU4UbuYEGvyo7VuXYEjIQAu5D5EejX8DgV0Eata4EQ5zV1Vqb_YJ9zXSv3M_Q9GeeuE8gB-krDeuFFLrL6Az8vXGR1HevziCnN8sXDXivCNuSTaDCAYx2Do9a5sVY5KDrCdKxDn76LDs224dDVTbRHAXtsy2RciRIcCYw"/>
+</div>
+<!-- Structured Output -->
+<div class="glass-card p-xl rounded-xl border border-primary-fixed relative overflow-hidden bg-white/95">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<h3 class="font-label-md text-label-md text-primary mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Structured AI Output
+                    </h3>
+<div class="space-y-sm">
+<div class="flex justify-between items-center pb-sm border-b border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Category:</span>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded font-label-sm text-label-sm">Road Maintenance</span>
+</div>
+<div class="flex justify-between items-center pb-sm border-b border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Priority:</span>
+<span class="bg-error/10 text-error px-2 py-1 rounded font-label-sm text-label-sm">High (Safety Hazard)</span>
+</div>
+<div class="flex justify-between items-center pb-sm border-b border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Location:</span>
+<span class="font-body-sm text-body-sm text-on-surface">5th Street (Near Bakery Geo-tag)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Secondary Issue:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Drainage/Water Pooling</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component JSON) -->
+<footer class="w-full py-xl px-margin flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container border-t border-outline-variant mt-auto">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">CivicFlow AI</span>
+<div class="flex flex-wrap justify-center gap-md font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:underline hover:text-primary transition-all duration-200" href="#">Contact Support</a>
+<a class="text-primary font-bold hover:underline transition-all duration-200" href="#">Admin Portal</a>
+<a class="hover:underline hover:text-primary transition-all duration-200" href="#">Privacy Policy</a>
+<a class="hover:underline hover:text-primary transition-all duration-200" href="#">Terms of Service</a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-right">
+            © 2024 CivicFlow AI. Empowering transparent governance.
+        </p>
+</footer>
+</body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Citizen Dashboard - CivicFlow AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#171d19",
+                      "outline": "#6d7a72",
+                      "surface-dim": "#d5dcd6",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-container": "#e9efe9",
+                      "on-secondary-fixed": "#131b2e",
+                      "surface-container-high": "#e4eae4",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#dee4de",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#ba5551",
+                      "surface-bright": "#f5fbf5",
+                      "secondary-container": "#dae2fd",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#3f465c",
+                      "inverse-surface": "#2c322e",
+                      "primary": "#006948",
+                      "on-surface-variant": "#3d4a42",
+                      "primary-fixed-dim": "#68dba9",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#5c647a",
+                      "on-tertiary-fixed": "#410004",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#7f2928",
+                      "inverse-primary": "#68dba9",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#00855d",
+                      "surface-container-low": "#eff5ef",
+                      "primary-fixed": "#85f8c4",
+                      "background": "#f5fbf5",
+                      "surface-container-highest": "#dee4de",
+                      "outline-variant": "#bccac0",
+                      "on-primary-container": "#f5fff7",
+                      "surface": "#f5fbf5",
+                      "tertiary-fixed-dim": "#ffb3ae",
+                      "secondary": "#565e74",
+                      "secondary-fixed-dim": "#bec6e0",
+                      "on-background": "#171d19",
+                      "on-primary-fixed-variant": "#005137",
+                      "tertiary": "#9b3e3b",
+                      "secondary-fixed": "#dae2fd",
+                      "surface-tint": "#006c4a",
+                      "on-primary-fixed": "#002114",
+                      "inverse-on-surface": "#ecf2ec",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdad7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "base": "4px",
+                      "md": "16px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "2xl": "48px",
+                      "margin": "32px",
+                      "3xl": "64px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid theme('colors.outline-variant');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin h-16 max-w-7xl mx-auto bg-white/90 dark:bg-surface/90 backdrop-blur-md border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex items-center gap-xl">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">CivicFlow AI</div>
+<nav class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Report an Issue</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Track Complaint</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-label-md text-label-md opacity-80 scale-95 transition-all" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Admin</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<!-- Search bar mapped from JSON "search_bar": "on_right" -->
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-md py-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm text-on-surface placeholder-outline ml-sm" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded hover:bg-primary-container transition-colors">New Report</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A clean, minimalist portrait of a professional individual looking slightly off-camera. The lighting is soft and studio-quality, casting gentle shadows that highlight their features without being dramatic. The background is a crisp, pure white, emphasizing the subject. They are wearing smart-casual, modern clothing. The overall aesthetic is highly polished, trustworthy, and suitable for a corporate or civic tech platform profile picture. Focus on clear details and a neutral, approachable expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLd56Vn8MQtH8xusxxH6LLAsZLWdpjV6bNVXnqw0Q4kP84j1rk5GRxHz6Yos9R7mIvnMYWmM6WHDhz07DVb3kygdPDCuTuEFqcMhTmUpGyfWfpQpNO5oD9B6UkdgrioBQa2CvgVeDDG2yT0nER2r9lLJfMtYoN_V4S3x80UbqNQQgXihS-bF5qW7qSylLTl-jfD4XV2VptEZeFfrv2CNJ8c6APGqD2HJvJvpEIoYt4Akyn1Ke_WSfnfg"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-[80px] pb-3xl px-margin max-w-7xl mx-auto w-full">
+<!-- Page Header & CTA -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Citizen Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Overview of your civic engagements and reports.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-md rounded-lg hover:bg-primary-container transition-colors flex items-center gap-sm shadow-sm hover:shadow-md">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Report New Issue
+            </button>
+</div>
+<!-- Summary Metrics (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-2xl">
+<!-- Metric 1 -->
+<div class="glass-panel p-lg rounded-xl flex flex-col justify-between h-32 hover:border-primary/50 transition-colors cursor-default">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Complaints</span>
+<span class="material-symbols-outlined text-outline text-[20px]">folder_open</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">12</div>
+</div>
+<!-- Metric 2 -->
+<div class="glass-panel p-lg rounded-xl flex flex-col justify-between h-32 hover:border-primary/50 transition-colors cursor-default">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Pending Review</span>
+<span class="material-symbols-outlined text-outline text-[20px]">hourglass_empty</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">3</div>
+</div>
+<!-- Metric 3 -->
+<div class="glass-panel p-lg rounded-xl flex flex-col justify-between h-32 hover:border-primary/50 transition-colors cursor-default">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">In Progress</span>
+<span class="material-symbols-outlined text-outline text-[20px]">sync</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">5</div>
+</div>
+<!-- Metric 4 -->
+<div class="glass-panel p-lg rounded-xl flex flex-col justify-between h-32 hover:border-primary/50 transition-colors cursor-default">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Resolved</span>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary">4</div>
+</div>
+</div>
+<!-- Active Complaints Section -->
+<div class="mb-lg flex justify-between items-end">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Active Complaints</h2>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-xs">
+                View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Grid of Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden">
+<div class="p-lg border-b border-outline-variant/30 flex-grow">
+<div class="flex justify-between items-start mb-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">#CF-2026-0012</span>
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-sm py-xs rounded-full">High Priority</span>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface mb-xs">Pothole on Main St</h3>
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded">Infrastructure</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 12</span>
+</div>
+<!-- Progress Bar -->
+<div class="mt-auto">
+<div class="flex justify-between font-label-sm text-label-sm mb-xs">
+<span class="text-on-surface-variant">Status: <strong class="text-on-surface">In Progress</strong></span>
+<span class="text-primary">60%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant/20 flex justify-end">
+<button class="bg-white/90 border border-outline-variant text-on-surface font-label-md text-label-md px-md py-sm rounded hover:bg-surface-variant transition-colors flex items-center gap-xs">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden">
+<div class="p-lg border-b border-outline-variant/30 flex-grow">
+<div class="flex justify-between items-start mb-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">#CF-2026-0014</span>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded-full">Low Priority</span>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface mb-xs">Streetlight out in Elm Park</h3>
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded">Utilities</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 14</span>
+</div>
+<!-- Progress Bar -->
+<div class="mt-auto">
+<div class="flex justify-between font-label-sm text-label-sm mb-xs">
+<span class="text-on-surface-variant">Status: <strong class="text-on-surface">Pending Review</strong></span>
+<span class="text-outline">10%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-outline-variant h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant/20 flex justify-end">
+<button class="bg-white/90 border border-outline-variant text-on-surface font-label-md text-label-md px-md py-sm rounded hover:bg-surface-variant transition-colors flex items-center gap-xs">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden">
+<div class="p-lg border-b border-outline-variant/30 flex-grow">
+<div class="flex justify-between items-start mb-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">#CF-2026-0015</span>
+<span class="bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-sm py-xs rounded-full">Medium Priority</span>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface mb-xs">Graffiti on Community Center</h3>
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded">Vandalism</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 15</span>
+</div>
+<!-- Progress Bar -->
+<div class="mt-auto">
+<div class="flex justify-between font-label-sm text-label-sm mb-xs">
+<span class="text-on-surface-variant">Status: <strong class="text-on-surface">In Progress</strong></span>
+<span class="text-primary">45%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant/20 flex justify-end">
+<button class="bg-white/90 border border-outline-variant text-on-surface font-label-md text-label-md px-md py-sm rounded hover:bg-surface-variant transition-colors flex items-center gap-xs">
+                        View Details
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-margin flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container dark:bg-surface-container-high border-t border-outline-variant dark:border-outline transition-all duration-200 mt-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface">CivicFlow AI</div>
+<nav class="flex gap-md flex-wrap justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Contact Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Admin Portal</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Terms of Service</a>
+</nav>
+<div class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant text-center md:text-right">
+            © 2024 CivicFlow AI. Empowering transparent governance.
+        </div>
+</footer>
+</body></html>

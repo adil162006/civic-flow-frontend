@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CivicFlow AI - Complaint Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#171d19",
+                      "outline": "#6d7a72",
+                      "surface-dim": "#d5dcd6",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-container": "#e9efe9",
+                      "on-secondary-fixed": "#131b2e",
+                      "surface-container-high": "#e4eae4",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#dee4de",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#ba5551",
+                      "surface-bright": "#f5fbf5",
+                      "secondary-container": "#dae2fd",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#3f465c",
+                      "inverse-surface": "#2c322e",
+                      "primary": "#006948",
+                      "on-surface-variant": "#3d4a42",
+                      "primary-fixed-dim": "#68dba9",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#5c647a",
+                      "on-tertiary-fixed": "#410004",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#7f2928",
+                      "inverse-primary": "#68dba9",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#00855d",
+                      "surface-container-low": "#eff5ef",
+                      "primary-fixed": "#85f8c4",
+                      "background": "#f5fbf5",
+                      "surface-container-highest": "#dee4de",
+                      "outline-variant": "#bccac0",
+                      "on-primary-container": "#f5fff7",
+                      "surface": "#f5fbf5",
+                      "tertiary-fixed-dim": "#ffb3ae",
+                      "secondary": "#565e74",
+                      "secondary-fixed-dim": "#bec6e0",
+                      "on-background": "#171d19",
+                      "on-primary-fixed-variant": "#005137",
+                      "tertiary": "#9b3e3b",
+                      "secondary-fixed": "#dae2fd",
+                      "surface-tint": "#006c4a",
+                      "on-primary-fixed": "#002114",
+                      "inverse-on-surface": "#ecf2ec",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdad7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "base": "4px",
+                      "md": "16px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "2xl": "48px",
+                      "margin": "32px",
+                      "3xl": "64px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8fafc; /* Slate-50 fallback */
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .timeline-line {
+            width: 2px;
+            background: #e2e8f0;
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+        
+        /* Typography Helpers */
+        .font-headline-md { font-family: 'Inter', sans-serif; font-size: 24px; line-height: 32px; font-weight: 600; }
+        .text-headline-md { font-size: 24px; line-height: 32px; font-weight: 600; }
+        
+        .font-label-md { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 20px; letter-spacing: 0.01em; font-weight: 500; }
+        .text-label-md { font-size: 14px; line-height: 20px; letter-spacing: 0.01em; font-weight: 500; }
+        
+        .font-body-md { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 24px; font-weight: 400; }
+        .text-body-md { font-size: 16px; line-height: 24px; font-weight: 400; }
+        
+        .font-headline-sm { font-family: 'Inter', sans-serif; font-size: 20px; line-height: 28px; font-weight: 600; }
+        .text-headline-sm { font-size: 20px; line-height: 28px; font-weight: 600; }
+        
+        .font-body-sm { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 20px; font-weight: 400; }
+        .text-body-sm { font-size: 14px; line-height: 20px; font-weight: 400; }
+        
+        .font-label-sm { font-family: 'Inter', sans-serif; font-size: 12px; line-height: 16px; font-weight: 600; }
+        .text-label-sm { font-size: 12px; line-height: 16px; font-weight: 600; }
+        
+        .font-headline-lg { font-family: 'Inter', sans-serif; font-size: 32px; line-height: 40px; letter-spacing: -0.01em; font-weight: 600; }
+        .text-headline-lg { font-size: 32px; line-height: 40px; letter-spacing: -0.01em; font-weight: 600; }
+    </style>
+</head>
+<body class="text-on-surface font-body-md bg-slate-50 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-white/90 dark:bg-surface/90 backdrop-blur-md shadow-sm dark:shadow-none fixed top-0 w-full z-50 flex justify-between items-center px-margin h-16 max-w-7xl mx-auto border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-lg">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">CivicFlow AI</div>
+<div class="hidden md:flex items-center gap-md font-label-md text-label-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors px-sm py-xs" href="#">Report an Issue</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 opacity-80 scale-95 transition-all px-sm" href="#">Track Complaint</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors px-sm py-xs" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors px-sm py-xs" href="#">Admin</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex items-center justify-center bg-primary text-on-primary rounded px-md py-sm font-label-md text-label-md hover:bg-primary-container transition-colors">
+                New Report
+            </button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A small, professional portrait photo of a civic worker in a clean, modern style, set against a neutral gray background. The lighting is bright and even, conveying trust and efficiency. The overall tone is consistent with a high-trust, minimalist software application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjuY29px52qydnVaa7ceC3BkzudbWNQ1LdPPBfhdnuS81bzUGpfGImcCZgi2AeHRyIdjkpbLsENFg0O86XeXkOGIL7UtuugxgIplbrrX7JFggo5EC6AO-TGbICPy8VpqtWUNVzy0Zuz_8LhEif8MRXsEKVdfE8bFtTTPIur963H2hvttQgb5GVIazqRRc9PEQXvtrnx34WfSdjhAzfK1hvuPmWTs4ko_HzkCt746iVWSkxQm-A3wjmcg"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[100px] pb-xl px-margin max-w-7xl mx-auto w-full flex flex-col gap-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md pb-md border-b border-slate-200">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<a class="text-primary hover:text-primary-container flex items-center font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[16px] mr-xs" data-icon="arrow_back">arrow_back</span>
+                        Back to List
+                    </a>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-slate-900 flex items-center gap-sm">
+                    Complaint #CF-2026-0012
+                </h1>
+<p class="font-body-sm text-body-sm text-slate-500 mt-xs">Submitted on Oct 12, 2026 at 09:41 AM</p>
+</div>
+<div class="flex items-center gap-sm">
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-amber-50 border border-amber-200 text-amber-700 font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    In Progress
+                </span>
+<button class="bg-white/90 border border-slate-200 text-slate-900 rounded px-md py-sm font-label-md text-label-md hover:bg-slate-50 transition-colors flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                    Update Status
+                </button>
+</div>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Media & Insights -->
+<div class="lg:col-span-7 flex flex-col gap-gutter">
+<!-- Image Viewer -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="p-sm border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+<h2 class="font-label-md text-label-md text-slate-700 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px] text-slate-500" data-icon="image">image</span>
+                            Submitted Media
+                        </h2>
+<div class="flex gap-xs">
+<button class="p-xs text-slate-500 hover:text-slate-900 rounded hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="p-xs text-slate-500 hover:text-slate-900 rounded hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="relative w-full h-[320px] bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="A stark, high-resolution photograph of a severe pothole on a paved city street. The asphalt is crumbling heavily around the edges of the depression. The lighting is bright, natural daylight, casting sharp shadows that emphasize the depth of the damage. The aesthetic is documentary and objective, suitable for civic infrastructure reporting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzu76A_7v_hTYyGvSALWXtCMtlAsppSzThC1mbu8IrR4Bp7ZsFSVmk4A7KUx69mkAIu5Rt6V0lah7W_LLnNwf_BYzU8do_3OEoOS7x5k74WisL7lV9ApXPJ-0QN2unZcO5U8hkRAI1kvijBwOqxwEUrPFVg6wEYeqz0noIju3My65CSGRgLow14Jj3EO_v59EgkfoKm1bkESUZjFlPUrk-WD5r9dBTSb1nPIokooursxQHdpu4Gm3SJw"/>
+<!-- AI Overlay Box -->
+<div class="absolute bottom-md right-md bg-white/90 backdrop-blur-md border border-slate-200 rounded-lg p-sm shadow-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="memory">memory</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-slate-500">Image Analyzed</span>
+<span class="font-label-md text-label-md text-slate-900">Surface Damage Detected</span>
+</div>
+</div>
+</div>
+<div class="p-sm flex gap-sm overflow-x-auto bg-slate-50/50">
+<div class="w-16 h-16 rounded border-2 border-primary overflow-hidden flex-shrink-0 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A small thumbnail showing a close-up of broken asphalt on a road surface. The lighting is bright and objective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDajX8WTvXn0UAdjDanNwI15Ie6JYnmKODXO7IvVpYGGF6SDK7zQHZFKuirO7QVkyWHbGttXblyuXEFa_c1D5qZhj-dOXoQZ5ivsjlNQSXNIvUtSwTKWGvSnDiP0lJsEk4e9hHKD8XYnajx4LGR3xOmpcNu1PhRC-14ntQsPR4LODyx2xUunBnFC8SrV0In7OMPnmneYw0CSTFXCg4IyqVqHK5xJPWOZ0w7qFKhNFmzbVvny3JoBWl34w"/>
+</div>
+<div class="w-16 h-16 rounded border border-slate-200 overflow-hidden flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A small thumbnail showing a wider view of a street with a pothole, capturing a bit of the sidewalk and a parked car. The lighting is bright daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATvvtlSrXPeuQlYjaw-UoWaLXF6c8ULHZC5WTELwok6CiVPfyOv0qQdBrqRm4-C7-Yp1XwfJ2R6M2OqoNCiBaBGS_OdB10CDK5CdXweY8FwaDHx23OhCmNLsVz0Hr1-stJzdlv-i-kWDsi-TZaaAvMpmaaLID1oO074rWS9F-XgmQi04ZNPBqzJZL786g3kFA3V5Jq1qVqPVYMNzfLUcLRLlKIVjgfeiqV7xMWqgHNiVNPT_NNLU_6zA"/>
+</div>
+</div>
+</div>
+<!-- AI Action Engine Insights -->
+<div class="glass-card rounded-xl p-md shadow-sm relative overflow-hidden">
+<!-- Decorative subtle gradient -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+<div class="flex items-center gap-sm mb-md relative z-10">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm text-slate-900">AI Action Engine Insights</h2>
+<span class="ml-auto inline-flex items-center px-sm py-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">
+                            Confidence: 94%
+                        </span>
+</div>
+<div class="grid grid-cols-2 gap-md relative z-10">
+<div class="flex flex-col gap-xs p-sm bg-slate-50/50 rounded border border-slate-100">
+<span class="font-label-sm text-label-sm text-slate-500">Category</span>
+<span class="font-body-md text-body-md text-slate-900 font-medium">Infrastructure</span>
+</div>
+<div class="flex flex-col gap-xs p-sm bg-slate-50/50 rounded border border-slate-100">
+<span class="font-label-sm text-label-sm text-slate-500">Priority</span>
+<span class="font-body-md text-body-md text-rose-600 font-medium flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+                                High
+                            </span>
+</div>
+<div class="flex flex-col gap-xs p-sm bg-slate-50/50 rounded border border-slate-100 col-span-2">
+<span class="font-label-sm text-label-sm text-slate-500">Routing Department</span>
+<span class="font-body-md text-body-md text-slate-900 font-medium">Department of Transportation (DOT)</span>
+</div>
+<div class="flex flex-col gap-xs p-sm bg-slate-50/50 rounded border border-slate-100 col-span-2">
+<span class="font-label-sm text-label-sm text-slate-500">Primary Reason</span>
+<span class="font-body-md text-body-md text-slate-900">Severe road surface damage identified. Depth estimated &gt; 3 inches, posing immediate risk to vehicular traffic.</span>
+</div>
+</div>
+<div class="mt-md pt-md border-t border-slate-100 flex justify-end gap-sm relative z-10">
+<button class="bg-white/90 border border-slate-200 text-slate-900 rounded px-md py-sm font-label-md text-label-md hover:bg-slate-50 transition-colors shadow-sm">
+                            Override AI
+                        </button>
+<button class="bg-primary text-on-primary rounded px-md py-sm font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+                            Confirm &amp; Route
+                        </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Location & Timeline -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- Location Pin -->
+<div class="glass-card rounded-xl shadow-sm overflow-hidden flex flex-col h-[300px]">
+<div class="p-sm border-b border-slate-100 bg-slate-50/50 flex justify-between items-center z-10 relative">
+<h2 class="font-label-md text-label-md text-slate-700 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px] text-slate-500" data-icon="location_on">location_on</span>
+                            Location Data
+                        </h2>
+</div>
+<div class="relative flex-grow bg-slate-200 w-full" data-location="Seattle" style="">
+<!-- Simplified map representation -->
+<div class="absolute inset-0 bg-[url('https://api.mapbox.com/styles/v1/mapbox/light-v10/static/-122.3321,47.6062,14,0,0/600x400?access_token=pk.eyJ1IjoiZXhhbXBsZSIsImEiOiJja29xdXpqeTgwY25uMm9xZ2JqZXk1ZzJ6In0.example')] bg-cover bg-center opacity-50 grayscale mix-blend-multiply"></div>
+<!-- Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-pulse absolute -z-10"></div>
+<span class="material-symbols-outlined text-[32px] text-primary" data-icon="location_on" data-weight="fill">location_on</span>
+</div>
+<!-- Address Box overlay -->
+<div class="absolute bottom-sm left-sm right-sm bg-white/90 backdrop-blur border border-slate-200 rounded p-sm shadow-sm flex flex-col">
+<span class="font-label-sm text-label-sm text-slate-500">Reported Address</span>
+<span class="font-body-sm text-body-sm text-slate-900 font-medium truncate">4th Ave &amp; Pike St, Seattle, WA 98101</span>
+<span class="font-label-sm text-label-sm text-slate-400 mt-xs text-xs">Lat: 47.6101° N, Lng: -122.3382° W</span>
+</div>
+</div>
+</div>
+<!-- Status Progress Timeline -->
+<div class="glass-card rounded-xl p-md shadow-sm">
+<h2 class="font-headline-sm text-headline-sm text-slate-900 mb-md pb-xs border-b border-slate-100 flex items-center gap-sm">
+<span class="material-symbols-outlined text-slate-500" data-icon="timeline">timeline</span>
+                        Resolution Timeline
+                    </h2>
+<div class="relative pl-sm">
+<!-- Step 1: Submitted -->
+<div class="timeline-item relative flex gap-md mb-md">
+<div class="timeline-line"></div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-sm border-2 border-white">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill">check</span>
+</div>
+<div class="flex flex-col pb-sm">
+<span class="font-label-md text-label-md text-slate-900">Submitted</span>
+<span class="font-body-sm text-body-sm text-slate-500">Oct 12, 09:41 AM via Mobile App</span>
+</div>
+</div>
+<!-- Step 2: AI Verified -->
+<div class="timeline-item relative flex gap-md mb-md">
+<div class="timeline-line"></div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-sm border-2 border-white">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill">check</span>
+</div>
+<div class="flex flex-col pb-sm">
+<span class="font-label-md text-label-md text-slate-900">AI Verified &amp; Classified</span>
+<span class="font-body-sm text-body-sm text-slate-500">Oct 12, 09:42 AM - Auto-routed to DOT</span>
+</div>
+</div>
+<!-- Step 3: Assigned -->
+<div class="timeline-item relative flex gap-md mb-md">
+<div class="timeline-line bg-amber-200"></div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-sm border-2 border-white">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill">check</span>
+</div>
+<div class="flex flex-col pb-sm">
+<span class="font-label-md text-label-md text-slate-900">Assigned</span>
+<span class="font-body-sm text-body-sm text-slate-500">Oct 12, 10:15 AM to Maintenance Crew Alpha</span>
+</div>
+</div>
+<!-- Step 4: In Progress (Current) -->
+<div class="timeline-item relative flex gap-md mb-md">
+<div class="timeline-line bg-slate-200"></div>
+<div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 z-10 shadow-sm border-2 border-white ring-4 ring-amber-50">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="sync" data-weight="fill">sync</span>
+</div>
+<div class="flex flex-col pb-sm">
+<span class="font-label-md text-label-md text-amber-700 font-bold">In Progress</span>
+<span class="font-body-sm text-body-sm text-slate-500">Oct 12, 01:30 PM - Crew arrived on site</span>
+</div>
+</div>
+<!-- Step 5: Resolved (Future) -->
+<div class="timeline-item relative flex gap-md">
+<div class="timeline-line"></div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center shrink-0 z-10 border-2 border-white">
+<div class="w-2 h-2 rounded-full bg-slate-400"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-slate-400">Resolved</span>
+<span class="font-body-sm text-body-sm text-slate-400">Pending</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Full Width: Audit History Table -->
+<div class="glass-card rounded-xl shadow-sm overflow-hidden mt-md">
+<div class="p-md border-b border-slate-100 bg-slate-50/80 flex justify-between items-center">
+<h2 class="font-headline-sm text-headline-sm text-slate-900 flex items-center gap-sm">
+<span class="material-symbols-outlined text-slate-500" data-icon="history">history</span>
+                    Audit History
+                </h2>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="filter_list">filter_list</span>
+                    Filter Logs
+                </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200 font-label-sm text-label-sm text-slate-500">
+<th class="py-sm px-md font-medium w-48">Timestamp</th>
+<th class="py-sm px-md font-medium w-32">Actor</th>
+<th class="py-sm px-md font-medium">Action Description</th>
+<th class="py-sm px-md font-medium w-32">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-slate-700 divide-y divide-slate-100">
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="py-sm px-md whitespace-nowrap text-slate-500">Oct 12, 2026 01:30 PM</td>
+<td class="py-sm px-md">Crew Alpha</td>
+<td class="py-sm px-md">Status changed to In Progress. Notes: "On site, assessing repair needs."</td>
+<td class="py-sm px-md"><span class="px-xs py-[2px] rounded bg-amber-50 text-amber-700 text-xs font-medium">In Progress</span></td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="py-sm px-md whitespace-nowrap text-slate-500">Oct 12, 2026 10:15 AM</td>
+<td class="py-sm px-md">Dispatcher J.D.</td>
+<td class="py-sm px-md">Assigned ticket to Maintenance Crew Alpha. Priority confirmed High.</td>
+<td class="py-sm px-md"><span class="px-xs py-[2px] rounded bg-blue-50 text-blue-700 text-xs font-medium">Assigned</span></td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="py-sm px-md whitespace-nowrap text-slate-500">Oct 12, 2026 09:42 AM</td>
+<td class="py-sm px-md flex items-center gap-xs text-primary"><span class="material-symbols-outlined text-[14px]" data-icon="smart_toy">smart_toy</span> System AI</td>
+<td class="py-sm px-md">Analyzed media. Classified as Infrastructure/Pothole. Confidence 94%. Routed to DOT.</td>
+<td class="py-sm px-md"><span class="px-xs py-[2px] rounded bg-emerald-50 text-emerald-700 text-xs font-medium">Verified</span></td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="py-sm px-md whitespace-nowrap text-slate-500">Oct 12, 2026 09:41 AM</td>
+<td class="py-sm px-md">Citizen App</td>
+<td class="py-sm px-md">Complaint submitted via Mobile Application. Location data appended.</td>
+<td class="py-sm px-md"><span class="px-xs py-[2px] rounded bg-slate-100 text-slate-600 text-xs font-medium">Submitted</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high w-full py-xl px-margin flex flex-col md:flex-row justify-between items-center gap-md border-t border-outline-variant dark:border-outline mt-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface">CivicFlow AI</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">
+            © 2024 CivicFlow AI. Empowering transparent governance.
+        </div>
+<div class="flex gap-md font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Contact Support</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Admin Portal</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-200" href="#">Terms of Service</a>
+</div>
+</footer>
+</body></html>
