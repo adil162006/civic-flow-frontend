@@ -43,7 +43,7 @@ export default function IntroPage() {
           </div>
 
           {/* Stats Grid */}
-          {/* <div className="mx-auto mt-20 grid max-w-6xl grid-cols-1 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm sm:grid-cols-3">
+          <div className="mx-auto mt-20 grid max-w-6xl grid-cols-1 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm sm:grid-cols-3">
             {[
               ['1,420+', 'issues resolved'],
               ['4.2 hrs', 'avg response time'],
@@ -59,7 +59,7 @@ export default function IntroPage() {
                 </p>
               </div>
             ))}
-          </div> */}
+          </div>
         </section>
 
         {/* How it Works Section */}
