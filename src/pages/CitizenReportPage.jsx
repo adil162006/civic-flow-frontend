@@ -107,7 +107,7 @@ export default function CitizenReportPage() {
 
       return api('/upload', { method: 'POST', body: payload })
     },
-    onSuccess: (data) => navigate(`/complaints/${data.complaintId}?email=${encodeURIComponent(form.userEmail)}`),
+    onSuccess: (data) => navigate(`/complaints/${data.complaintId}`),
   })
 
   const handleSubmit = (event) => {
