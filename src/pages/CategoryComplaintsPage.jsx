@@ -39,7 +39,7 @@ export default function CategoryComplaintsPage() {
             <div className="flex items-start justify-between gap-3"><span className="font-mono text-xs font-bold text-emerald-800">{complaint.complaintId}</span><span className={`rounded-full px-2.5 py-1 text-xs font-bold capitalize ${priorityClass(complaint.priority)}`}>{complaint.priority} priority</span></div>
             <h2 className="mt-5 text-xl font-bold text-slate-900">{complaint.category}</h2>
             <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">{complaint.description}</p>
-            <p className="mt-5 flex items-center gap-2 text-sm text-slate-600"><MapPin size={16} className="text-emerald-700"/>{complaint.location}</p>
+            <p className="mt-5 flex items-center gap-2 text-sm text-slate-600"><MapPin size={16} className="text-emerald-700"/>{typeof complaint.location === 'object' ? complaint.location?.address : complaint.location}</p>
             <p className="mt-2 flex items-center gap-2 text-sm text-slate-500"><CalendarDays size={16}/>{new Date(complaint.createdAt).toLocaleDateString()}</p>
             <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4"><span className={`rounded-full px-2.5 py-1 text-xs font-bold ${statusClass(complaint.status)}`}>{complaint.status}</span><Link to={`/complaints/${complaint.complaintId}`} className="inline-flex items-center gap-1 text-sm font-bold text-emerald-800">Details <ChevronRight size={16}/></Link></div>
           </article>)}

@@ -9,8 +9,26 @@ export default function SiteHeader() {
   return <header className="sticky top-0 z-30 border-b border-slate-300 bg-white/95 backdrop-blur">
     <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 sm:px-8">
       <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-emerald-800"><Sparkles size={20}/> CivicFlow AI</Link>
-      <nav className="hidden items-center gap-7 text-sm font-semibold md:flex"><NavLink to="/report" className={active}>Report an Issue</NavLink><NavLink to="/track" className={active}>Track Complaint</NavLink><NavLink to="/categories" className={active}>Categories</NavLink><NavLink to="/citizen" className={active}>Dashboard</NavLink><NavLink to="/admin" className={active}>Admin</NavLink></nav>
-      <div className="flex items-center gap-3">{admin && <button onClick={() => { signOut(); navigate('/') }} className="hidden items-center gap-1 text-sm text-slate-500 hover:text-rose-600 sm:flex"><LogOut size={16}/> Sign out</button>}<Link to="/report" className="inline-flex items-center gap-2 rounded-sm bg-emerald-800 px-4 py-2.5 text-sm font-bold text-white hover:bg-emerald-900"><Plus size={17}/> <span className="hidden sm:inline">New Report</span></Link>{!admin && <Link to="/admin" aria-label="Admin sign in" className="text-emerald-800"><ShieldCheck size={21}/></Link>}</div>
+      <nav className="hidden items-center gap-7 text-sm font-semibold md:flex">
+        <NavLink to="/report" className={active}>Report an Issue</NavLink>
+        <NavLink to="/track" className={active}>Track Complaint</NavLink>
+        <NavLink to="/categories" className={active}>Categories</NavLink>
+        {admin && <NavLink to="/admin" className={active}>Dashboard</NavLink>}
+      </nav>
+      <div className="flex items-center gap-3">
+        {admin ? (
+          <button onClick={() => { signOut(); navigate('/') }} className="flex items-center gap-1.5 rounded border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-100">
+            <LogOut size={15}/> Sign out
+          </button>
+        ) : (
+          <Link to="/admin" className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-800 hover:text-emerald-950">
+            <ShieldCheck size={19}/> Admin
+          </Link>
+        )}
+        <Link to="/report" className="inline-flex items-center gap-2 rounded-sm bg-emerald-800 px-4 py-2.5 text-sm font-bold text-white hover:bg-emerald-900">
+          <Plus size={17}/> <span className="hidden sm:inline">New Report</span>
+        </Link>
+      </div>
     </div>
   </header>
 }
